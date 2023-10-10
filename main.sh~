@@ -1,0 +1,4 @@
+#/usr/bin/env bash
+read -p "enter your name, email, age, STUDENTID" name email age STUDENTID
+echo "$name $email $age $STUDENTID" >> students-list_0923.txt
+
