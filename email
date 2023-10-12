@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Input file containing student records
+input_file="students-list_0923.txt"
+
+# Output file for storing student emails
+output_file="student-emails.txt"
+
+# Ensure the input file exists
+if [ ! -f "$input_file" ]; then
+    echo "Input file '$input_file' not found."
+    exit 1
+fi
+
+# Extract emails and save them to the output file
+awk -F ', ' '{print $1}' "$input_file" > "$output_file"
+
+echo "Student emails have been extracted and saved in '$output_file'."
