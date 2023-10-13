@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#This script reads user input and performs different tasks
 while true
 do
     read -r -p "Enter the option for ewhat task you want to perform(enter for entering records, view for viewing records, delete for deleting record update for updating records and exit for exiting the application)" option
