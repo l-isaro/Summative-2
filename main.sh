@@ -11,11 +11,11 @@ do
 	   echo "Record added successfully"
       elif [[ $option == "view" ]]
       then
-	   cat students-list_0923.txt
+	   k.klklcat students-list_0923.txt
       elif [[ $option == "delete" ]]
       then
 	   read -p "enter the STUDENTID" temp_id
-	   sed -i "/$temp_id/d" students-list_0923.txt
+	   sed -i "/^.*,$delete_id$/d" students-list_0923.txt
 	   echo "Record deleted successfully"
       elif [[ $option == "update" ]]
       then
