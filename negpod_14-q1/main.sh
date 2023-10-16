@@ -15,13 +15,13 @@ do
       elif [[ $option == "delete" ]]
       then
 	   read -p "enter the STUDENTID" temp_id
-	   sed -i "/^.*,$delete_id$/d" students-list_0923.txt
+	   sed -i "/$temp_id/d" students-list_0923.txt
 	   echo "Record deleted successfully"
       elif [[ $option == "update" ]]
       then
 	   read -p "enter the STUDENTID of the student who's information you want to update" update_id
 	   read -p "enter the updated email and age " updated_email updated_age
-	   sed -i "s/^.*,$update_id$/$updated_email,$updated_age$update_id/" students-list_0923.txt
+           sed -i "s/ $update_id / $updated_email $updated_age /" students-list_0923.txt
 	   echo "Record updated successfully"
       elif [[ $option == "exit" ]]
       then
