@@ -6,22 +6,22 @@ do
     echo "$option"
       if [[ $option == "enter" ]]
       then
-	   read -p "enter your name, email, age, STUDENTID" name email age STUDENTID
+	   read -p "enter your email, age and STUDENTID" email age STUDENTID
 	   echo "$name $email $age $STUDENTID" >> students-list_0923.txt
 	   echo "Record added successfully"
       elif [[ $option == "view" ]]
       then
-	   k.klklcat students-list_0923.txt
+	   cat students-list_0923.txt
       elif [[ $option == "delete" ]]
       then
 	   read -p "enter the STUDENTID" temp_id
-	   sed -i "/^.*,$delete_id$/d" students-list_0923.txt
+	   sed -i "/$temp_id/d" students-list_0923.txt
 	   echo "Record deleted successfully"
       elif [[ $option == "update" ]]
       then
 	   read -p "enter the STUDENTID of the student who's information you want to update" update_id
-	   read -p "enter the updated name, email and age " updated_name updated_email updated_age
-	   sed -i "s/^.*,$update_id$/$updated_name,$updated_email,$updated_age$update_id/" students-list_0923.txt
+	   read -p "enter the updated email and age " updated_email updated_age
+           sed -i "s/ $update_id / $updated_email $updated_age /" students-list_0923.txt
 	   echo "Record updated successfully"
       elif [[ $option == "exit" ]]
       then
