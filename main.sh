@@ -8,5 +8,7 @@ while true
       elif (option == "view")
 	   cat students-list_0923.txt
       elif (option == "delete")
-	   rm 
+	   read -p "enter the STUDENTID" temp_id
+	   sed -i "$temp_id" students-list_0923.txt
+      elif (option == "")
 
