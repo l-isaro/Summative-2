@@ -18,8 +18,8 @@ dest="summative/0923-2023S"
 # Create a directory on the remote server if it doesn't exist
 sshpass -p "$password" ssh -o StrictHostKeyChecking=no "$username@$host" "mkdir -p /summative/0923-2023S"
 
-# Use rsync to backup the directory to the alu-cod.online server
-rsync -avz --delete -e "sshpass -p $password ssh -o StrictHostKeyChecking=no" "$source_directory" "$username@$host:$dest"
+# Use scp to backup the directory to the alu-cod.online server
+scp -avz --delete -e "sshpass -p $password ssh -o StrictHostKeyChecking=no" "$source_directory" "$username@$host:$dest"
 
 echo -n "Backup completed. Ending Program ."
 load
