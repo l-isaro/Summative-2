@@ -1,27 +1,15 @@
-#!/usr/bin/env bash
-# What to backup.
-backup_files="/~/Summative-2/negpod_14-q1"
+#!/bin/bash
 
-# Where to backup to.
-dest="/summative/0923-2023S"
+# Define variables for remote server details
+host="2f05c1f8800b.3be8ebfc.alu-cod.online"
+username="2f05c1f8800b"
+password="d4a1d225d0abda9549d8"
+remote_dir="/summative/0923-2023S"
 
-# Create archive filename.
-day=$(date +%A)
-hostname=$(2f05c1f8800b -s)
-archive_file="$hostname-$day.tgz"
+# Define variable for local directory to back up
+local_dir="negpod_14-q1"
 
-# Print start status message.
-echo "Backing up $backup_files to $dest/$archive_file"
-date
-echo
+# Use scp to copy the local directory to the remote server
+scp -r "$local_dir" "$username@$host:$remote_dir"
 
-# Backup the files using tar.
-tar czf $dest/$archive_file $backup_files
-
-# Print end status message.
-echo
-echo "Backup finished"
-date
-
-# Long listing of files in $dest to check file sizes.
-ls -lh $dest
+echo "Backup of $local_dir completed successfully!"
